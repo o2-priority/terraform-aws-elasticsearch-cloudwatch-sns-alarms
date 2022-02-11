@@ -84,7 +84,7 @@ resource "aws_cloudwatch_metric_alarm" "free_storage_space_total_too_low" {
   count               = var.monitor_free_storage_space_total_too_low ? var.min_available_nodes > 0 ? 1 : 0 : 0
   alarm_name          = "${var.alarm_name_prefix}ElasticSearch-FreeStorageSpaceTotalTooLow${var.alarm_name_postfix}"
   comparison_operator = "LessThanOrEqualToThreshold"
-  evaluation_periods  = var.alarm_free_storage_space_total_too_low_periods
+  evaluation_periods  = var.alarm_free_storage_space_total_too_low_eval_periods
   datapoints_to_alarm = var.alarm_free_storage_space_total_too_low_periods
   metric_name         = "FreeStorageSpace"
   namespace           = "AWS/ES"
