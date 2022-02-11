@@ -155,7 +155,7 @@ variable "alarm_free_storage_space_too_low_period" {
 variable "alarm_free_storage_space_total_too_low_period" {
   description = "The period of the total cluster free storage is too low should the statistics be applied in seconds"
   type        = number
-  default     = 60
+  default     = 300
 }
 
 variable "alarm_cluster_index_writes_blocked_period" {
@@ -271,7 +271,13 @@ variable "alarm_free_storage_space_too_low_periods" {
 variable "alarm_free_storage_space_total_too_low_periods" {
   description = "The number of periods to alert that total cluster free storage space is too low.  Default: 1, raise this to be less noisy, as this can occur often for only 1 period"
   type        = number
-  default     = 1
+  default     = 3
+}
+
+variable "alarm_free_storage_space_total_too_low_eval_periods" {
+  description = "The number of periods to alert that total cluster free storage space is too low.  Default: 1, raise this to be less noisy, as this can occur often for only 1 period"
+  type        = number
+  default     = 5
 }
 
 variable "alarm_cluster_index_writes_blocked_periods" {
